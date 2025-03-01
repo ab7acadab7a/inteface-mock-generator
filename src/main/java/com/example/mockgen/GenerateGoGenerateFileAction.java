@@ -60,7 +60,8 @@ public class GenerateGoGenerateFileAction extends AnAction {
 
         // Generate the go:generate command
         String interfaceName = file.getNameWithoutExtension(); // Assuming the interface name is the file name without extension
-        return "//go:generate mockgen -source=" + file.getPath() + " -destination=mocks/" + packageName + "/" + interfaceName + "_mock.go -package=mocks";
+        return "//go:generate mockgen -source=" + file.getPath() + " -destination=mocks/" + packageName + "/" +
+                interfaceName + "_mock.go " + interfaceName + "=Mock" + interfaceName + " -package=mocks";
     }
 
     private String getPackageNameFromFile(VirtualFile file) {

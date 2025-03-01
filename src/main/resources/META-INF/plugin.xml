@@ -6,7 +6,7 @@
     </description>
     <version>1.0.0</version>
     <vendor>TAP Inc.</vendor>
-    <idea-version since-build="241.*" until-build="243.*"/>
+    <idea-version since-build="240.*" until-build="243.*"/>
 
     <!-- Define the actions (your right-click menu) -->
     <actions>
