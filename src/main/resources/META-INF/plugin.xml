@@ -1,30 +1,42 @@
-<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
-    <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
-    <id>com.base.inteface-mock-generator</id>
+    <id>com.example.mockgen</id>
+    <name>Mockgen Generator</name>
+    <description>Generates mocks for Go interfaces, making the mock under
+        root_project_path/mocks/package/mock_interfaceName
+    </description>
+    <version>1.0.0</version>
+    <vendor>TAP Inc.</vendor>
+    <idea-version since-build="241.*" until-build="243.*"/>
 
-    <!-- Public plugin name should be written in Title Case.
-         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
-    <name>Inteface-mock-generator</name>
+    <!-- Define the actions (your right-click menu) -->
+    <actions>
 
-    <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
-    <vendor email="support@yourcompany.com" url="https://www.yourcompany.com">YourCompany</vendor>
+        <!-- Action for generating mocks for a single interface -->
+        <action
+                id="GenerateMockForSingleInterface"
+                class="com.example.mockgen.SingleInterfaceMockgenAction"
+                text="Generate Mock For This Interface"
+                description="Generate mock for the interface under the cursor">
+            <add-to-group group-id="GenerateGroup" anchor="last"/>
+        </action>
+        <!-- Action to generate mocks for all interfaces in file-->
+        <action
+                id="GenerateMocksForFile"
+                class="com.example.mockgen.MockgenAction"
+                text="Generate Mocks For Entire File"
+                description="Generate mock interfaces for all interfaces in the file">
+            <add-to-group group-id="GenerateGroup" anchor="last"/>
+        </action>
 
-    <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
-         Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
-         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
-    <description><![CDATA[
-    Enter short description for your plugin here.<br>
-    <em>most HTML tags may be used</em>
-  ]]></description>
+        <!-- Action to generate go:generate file -->
+        <action
+                id="GenerateGoGenerateFileAction"
+                class="com.example.mockgen.GenerateGoGenerateFileAction"
+                text="Generate go:generate File"
+                description="Generate a go:generate file with all mockgen commands">
+            <add-to-group group-id="GenerateGroup" anchor="last"/>
+        </action>
+    </actions>
 
-    <!-- Product and plugin compatibility requirements.
-         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
     <depends>com.intellij.modules.platform</depends>
-
-    <!-- Extension points defined by the plugin.
-         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
-    <extensions defaultExtensionNs="com.intellij">
-
-    </extensions>
 </idea-plugin>
