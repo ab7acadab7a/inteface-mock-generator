@@ -60,7 +60,7 @@ public class MockgenUtil {
     }
 
     public static String ensureMocksDirectory(Project project, String packageName) {
-        String mocksDirectory = project.getBasePath() + "/mocks/" + packageName;
+        String mocksDirectory = "mocks/" + packageName;
         File dir = new File(mocksDirectory);
         if (!dir.exists() && !dir.mkdirs()) {
             Messages.showErrorDialog("Failed to create mocks directory", "Error");
@@ -68,4 +68,7 @@ public class MockgenUtil {
         }
         return mocksDirectory;
     }
+
+
+
 }

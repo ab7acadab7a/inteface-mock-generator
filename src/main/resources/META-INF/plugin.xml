@@ -1,5 +1,5 @@
 <idea-plugin>
-    <id>com.example.mockgen</id>
+    <id>dev.mockgen.plugin</id>
     <name>Mockgen Generator</name>
     <description>Generates mocks for Go interfaces, making the mock under
         root_project_path/mocks/package/mock_interfaceName
@@ -10,24 +10,22 @@
 
     <!-- Define the actions (your right-click menu) -->
     <actions>
-
-        <!-- Action for generating mocks for a single interface -->
-        <action
-                id="GenerateMockForSingleInterface"
-                class="com.example.mockgen.SingleInterfaceMockgenAction"
-                text="Generate Mock For This Interface"
-                description="Generate mock for the interface under the cursor">
-            <add-to-group group-id="GenerateGroup" anchor="last"/>
-        </action>
-        <!-- Action to generate mocks for all interfaces in file-->
-        <action
-                id="GenerateMocksForFile"
-                class="com.example.mockgen.MockgenAction"
-                text="Generate Mocks For Entire File"
-                description="Generate mock interfaces for all interfaces in the file">
-            <add-to-group group-id="GenerateGroup" anchor="last"/>
-        </action>
-
+<!--        &lt;!&ndash; Action for generating mocks for a single interface &ndash;&gt;-->
+<!--        <action-->
+<!--                id="GenerateMockForSingleInterface"-->
+<!--                class="com.example.mockgen.SingleInterfaceMockgenAction"-->
+<!--                text="Generate Mock For This Interface"-->
+<!--                description="Generate mock for the interface under the cursor">-->
+<!--            <add-to-group group-id="GenerateGroup" anchor="last"/>-->
+<!--        </action>-->
+<!--        &lt;!&ndash; Action to generate mocks for all interfaces in file&ndash;&gt;-->
+<!--        <action-->
+<!--                id="GenerateMocksForFile"-->
+<!--                class="com.example.mockgen.MockgenAction"-->
+<!--                text="Generate Mocks For Entire File"-->
+<!--                description="Generate mock interfaces for all interfaces in the file">-->
+<!--            <add-to-group group-id="GenerateGroup" anchor="last"/>-->
+<!--        </action>-->
         <!-- Action to generate go:generate file -->
         <action
                 id="GenerateGoGenerateFileAction"
